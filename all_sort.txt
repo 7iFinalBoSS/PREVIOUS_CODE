@@ -1,0 +1,76 @@
+
+#include <iostream>
+
+using namespace std;
+
+int kadanesubarry_sum(int*arr,int n){
+    int cs =0;
+    int large = 0;
+    for(int i =0;i<n;i++){
+        cs = cs +arr[i];
+        if(cs<0){
+            cs =0;
+        }
+        large = max(large,cs);
+    }
+    return large;
+}
+
+void bubble_sort(int*arr,int n){
+    for(int i =0;i<n;i++){
+        for(int j = 0; j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
+            }
+        }
+    }
+}
+void insertion_sort(int*arr,int n){
+    for(int i =1;i<n-1;i++){
+        int cur = arr[i];
+        int prev = i-1;
+        while(prev>=0 && arr[prev]>cur){
+            arr[prev+1]=arr[prev];
+            prev = prev-1;
+        }
+        arr[prev+1]=cur;
+    }
+}
+void selection_sort(int*arr,int n){
+    for(int i =0;i<n-2;i++){
+        int min = i;
+        for(int j =i;j<n;j++){
+            if(arr[j]<arr[min]){
+                min = j;
+            }
+        }
+        swap(arr[min],arr[i]);
+    }
+}
+void insertarray(int *arr, int n){
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+}
+void print_array(int *arr, int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    insertarray(arr,n);
+    print_array(arr,n);
+    //subarraysum(arr,n);
+    //cout<<kadanesubarry_sum(arr,n)<<endl;
+    //bubble_sort(arr,n);
+    //insertion_sort(arr,n);
+    selection_sort(arr,n);
+    print_array(arr,n);
+
+    return 0;
+}

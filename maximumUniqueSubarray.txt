@@ -1,0 +1,46 @@
+
+#include <iostream>
+#include<vector>
+#include <bits/stdc++.h>
+using namespace std;
+int maximumUniqueSubarray(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int i =0;
+        int j = i+1;
+        int n = nums.size();
+        vector<int> v ={};
+        while(i<=n){
+
+            if(nums[i]==nums[j]){
+                j++;
+            }
+            else{
+                v.push_back(nums[i]);
+                i=j;
+                j++;
+                
+            }
+            if(j>n){
+                   i++;
+                   v.push_back(nums[i]);
+            }
+        }
+        int sum =0;
+        for(int i =0;i<v.size()-1;i++){
+            cout<<v[i]<<" ";
+            sum +=v[i];
+            
+        }
+        cout<<endl;
+        cout<<sum<<endl;
+        return -1;
+    }
+
+int main()
+{
+    vector<int> v={9,10,4,4,5,3,2,1,1};
+    int s =maximumUniqueSubarray(v);
+    cout<<s<<endl;
+
+    return 0;
+}

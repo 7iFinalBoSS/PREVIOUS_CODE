@@ -1,0 +1,41 @@
+
+#include <iostream>
+
+using namespace std;
+
+int kadanesubarry_sum(int*arr,int n){
+    int cs =0;
+    int large = 0;
+    for(int i =0;i<n;i++){
+        cs = cs +arr[i];
+        if(cs<0){
+            cs =0;
+        }
+        large = max(large,cs);
+    }
+    return large;
+}
+
+void insertarray(int *arr, int n){
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+}
+void print_array(int *arr, int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n];
+    insertarray(arr,n);
+    print_array(arr,n);
+    //subarraysum(arr,n);
+    cout<<kadanesubarry_sum(arr,n)<<endl;
+
+    return 0;
+}

@@ -1,0 +1,63 @@
+spiral print
+
+
+#include <iostream>
+
+using namespace std;
+
+void spiralprint(int arr[][10],int n,int m){
+    
+    int startrow =0;
+    int endrow = n-1;
+    int startcol = 0;
+    int endcol = m-1;
+    
+    while(startrow <= endrow && startcol <= endcol){
+        
+        for(int i = startcol; i<= endcol;i++){
+            cout << arr[startrow][i]<<" ";
+        }
+        
+        for(int i = startrow+1;i<=endrow;i++){
+            cout << arr[i][endcol]<<" ";
+        }
+        
+        for(int i = endcol-1;i>= startcol;i--){
+            if(startrow==endrow)
+                break;
+            cout<<arr[endrow][i]<<" ";
+        }
+        for(int i = endrow -1;i>= startrow+1;i--){
+            if(startcol == endcol)
+                break;
+            cout<<arr[i][startcol]<<" ";
+        }
+        startrow++;
+        endrow--;
+        startcol++;
+        endcol--;
+    }
+    
+}
+
+
+int main(){
+    
+    int arr[][10] = {{1,2,3,4},
+                     {12,13,14,5},
+                     {11,16,15,6},
+                     {10,9,8,7}};
+    int n =4,m=4;
+                     
+    for(int i =0;i<n;i++){
+        for(int j =0;j<m;j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    
+    spiralprint(arr,n,m);
+    return 0;
+    
+    
+}

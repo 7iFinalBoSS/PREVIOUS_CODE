@@ -1,0 +1,71 @@
+Recurssion
+
+
+
+#include <iostream>
+using namespace std;
+int factorial(int n){
+    if(n==0){
+        return 1;
+    }
+    return n * factorial(n-1);
+}
+
+int fibonacci(int n){
+    if(n==0 || n==1){
+        return n;
+    }
+    return fibonacci(n-1) + fibonacci(n-2);
+}
+
+bool checkarrsorted(int *arr,int n){
+    //base case
+    if(n==1 or n==0){
+        return true;
+    }
+    if(arr[0]<arr[1] and checkarrsorted(arr+1,n-1)){
+        return true;
+    }
+    return false;
+}
+bool issorted(int *arr,int i,int n){
+    if(i==n-1){
+        return true;
+    }
+    if(arr[i]<arr[i+1] and issorted(arr,i+1,n)){
+        return true;
+    }
+    return false;
+    
+}
+
+void decreasing(int n){
+    if(n==0){
+        return;
+    }
+    
+    cout<<n<<",";
+    decreasing(n-1);
+}
+void increasing(int n){
+    if(n==0){
+        return;
+    }
+    increasing(n-1);
+    cout<<n<<",";
+    
+}
+int main()
+{
+    int arr[5]= {1,2,3,4,5};
+    int n = 5;
+    //cout<<factorial(n)<<endl;
+    //cout<<fibonacci(n)<<endl;
+    // cout<<checkarrsorted(arr,n);
+    // cout<<issorted(arr,0,n);
+    // decreasing(n);
+    // cout<<endl;
+    // increasing(n);
+
+    return 0;
+}

@@ -1,0 +1,58 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+    // char s[100];
+    // char temp = cin.get();
+    // int len =0;
+    // int alpha =0;
+    // int digit =0;
+    // int space=0;
+    // while(temp != '\n'){
+        
+    //     s[len++]=temp;
+    //     if(temp>='0' && temp<='9'){
+    //         digit++;
+    //     }
+    //     else if((temp>='a' && temp<='z') || (temp>='A' && temp<='Z')){
+    //         alpha++;
+    //     }
+    //     else if(temp==' ' || temp =='\t' ){
+    //         space++;
+    //     }
+    //     temp = cin.get();
+        
+        
+    // }
+    // s[len]='\n';
+    // cout<<endl;
+    // //cout<<"length : "<<len<<endl;
+    // cout<<digit<<endl;
+    // cout<<alpha<<endl;
+    // cout<<space<<endl;
+    // cout<<s<<endl;
+    
+    char s[1000];
+    char l[1000];
+    
+    int n;
+    cin>>n;
+    
+    int large=0;
+    cin.get();
+    while(n--){
+        cin.getline(s,1000);
+        int len=strlen(s);
+        if(len>large){
+            large =len;
+            strcpy(l,s);
+        }
+    }
+    
+    cout<<l<<endl;
+    
+
+    return 0;
+}

@@ -1,0 +1,104 @@
+Vector class:-
+
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+class Vector{
+  
+  
+  int*arr;
+  int cs;
+  int ms;
+  public:
+  Vector(){
+      cs = 0;
+      ms = 1;
+      arr = new int[ms];
+  }
+  
+  void push_back(int d){
+      if(cs == ms){
+        int *oldarr = arr;
+        ms = 2*ms;
+        arr = new int[ms];
+        
+        for(int i =0;i<cs;i++){
+            arr[i] = oldarr[i];
+        }
+        delete oldarr;
+      }
+      arr[cs]=d;
+      cs++;
+  }
+  
+  void pop_back(){
+      if(cs>=0)cs--;
+      
+  }
+  bool isempty(){
+      return cs==0;
+  }
+  
+  int getfront(){
+      return arr[0];
+  }
+  
+  int back(){
+      return arr[cs-1];
+  }
+  int size(){
+      return cs;
+  }
+  int capacity(){
+      return ms;
+  }
+    
+    
+    
+    
+};
+
+int main()
+{
+    // vector<int> v = {1,2,3,4,5,6,7};
+    
+    // int key;
+    // cin>>key;
+    
+    
+    
+    // vector<int>::iterator it = find(v.begin(),v.end(),key);
+    
+    // if(it!=v.end())cout<<it - v.begin();
+    // else cout<<"element is not found";
+    
+    
+    // vector<vector<int>>arr = {{1,2,3},
+    //                           {4,5,6,7},
+    //                           {8,9,10},
+    //                           {11,12}};
+                              
+    // for(int i =0;i<arr.size();i++){
+    //     for(int number : arr[i]){
+    //         cout<<number<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    
+    Vector v;
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
+    v.push_back(5);
+    
+    cout<<v.size()<<endl;
+    
+    
+    return 0;
+}
